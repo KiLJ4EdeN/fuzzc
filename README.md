@@ -70,10 +70,6 @@ core, core_fn = fuzzy.core()
 print(core)
 print(core_fn)
 ```
-3 - Run the script:
 
-```bash
-python detect.py
-```
  
 
