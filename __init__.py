@@ -1,1 +1,1 @@
-from core import Fuzzy_Set, Crisp_Set
+from fuzzc import Fuzzy_Set, Crisp_Set
