@@ -8,7 +8,10 @@ Any contribution is welcome.
 [![License](https://img.shields.io/github/license/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/license/KiLJ4EdeN/fuzzc) [![Version](https://img.shields.io/github/v/tag/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/v/tag/KiLJ4EdeN/fuzzc) [![Code size](https://img.shields.io/github/languages/code-size/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/languages/code-size/KiLJ4EdeN/fuzzc) [![Repo size](https://img.shields.io/github/repo-size/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/repo-size/KiLJ4EdeN/fuzzc) [![Issue open](https://img.shields.io/github/issues/KiLJ4EdeN/fuzzcfuzzc)](https://img.shields.io/github/issues/KiLJ4EdeN/fuzzc)
 ![Issue closed](https://img.shields.io/github/issues-closed/KiLJ4EdeN/fuzzc)
 
+## Available Functions Up to now.
 
+add, substract, multiplication, comparative operatiors ( >, <, etc), show, support, crossover, is_fuzzy_singleton,
+center, plot_membership, height, alpha_cut, core, is_normal, is_convex.
 ## Prerequisites:
 
 1 - Python
