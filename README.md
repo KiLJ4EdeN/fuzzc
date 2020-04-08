@@ -18,7 +18,7 @@ Any contribution is welcome.
 3 - Matplotlib
 
 
-# To see an example usage:
+### To see an example usage:
 
 1 - Clone the repo and put the module in the cwd.
 
