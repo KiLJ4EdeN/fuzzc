@@ -24,7 +24,11 @@ center, plot_membership, height, alpha_cut, core, is_normal, is_convex.
 ### To see an example usage:
 
 1 - Clone the repo and put the module in the cwd.
-
+```bash
+git clone https://github.com/KiLJ4EdeN/fuzzc/
+cd fuzzc
+python3
+```
 2 - Import the module and try some functionalities:
 ```python
 import fuzzc.core as fuzzc
