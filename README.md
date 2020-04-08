@@ -53,7 +53,7 @@ import fuzzc.core as fuzzc
 fuzzy_set = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
 # create a custom membership function for average height (avg = 170).
 membership_fn = np.array([0., 0.1, 0.25, 0.5, 1.0, 0.5, 0.25, 0.1, 0])
-myset = Fuzzy_Set(fuzzy_set=fuzzy_set, membership_fn=membership_fn)
+myset = fuzzc.Fuzzy_Set(fuzzy_set=fuzzy_set, membership_fn=membership_fn)
 # show the members and their respective membership.
 myset.show()
 # plot the membership function.
@@ -74,7 +74,7 @@ alpha_cut, fn = myset.alpha_cut(0.5)
 print(alpha_cut)
 print(fn)
 # The core of a fuzzy set is where the memberships are maximized( ==1 ).
-core, core_fn = fuzzy.core()
+core, core_fn = myset.core()
 print(core)
 print(core_fn)
 ```
