@@ -2,6 +2,7 @@
 A simple python module to Use fuzzy logic.
 Hint that the module is still in proggress.
 Any contribution is welcome.
+The idea is to provide a utility, with the ability to compete with matlab. 
 
 
 
