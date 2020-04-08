@@ -27,11 +27,72 @@ class Fuzzy_Set():
     try:
       assert len(self.membership_fn) == len(y.membership_fn)
       fn = self.membership_fn+y.membership_fn
-      fn[fn >=1] = 1
-      return (self.fuzzy_set, fn)
+      fn[fn>=1] = 1
+      return self.fuzzy_set, fn
     except:
       print('Wrong input!')
       return None
+
+  def __sub__(self, y):
+    try:
+      assert len(self.membership_fn) == len(y.membership_fn)
+      fn = self.membership_fn-y.membership_fn
+      fn[fn<=0] = 0
+      return self.fuzzy_set, fn
+    except:
+      print('Wrong input!')
+      return None
+
+  def __mul__(self, y):
+      try:
+        assert len(self.membership_fn) == len(y.membership_fn)
+        fn = self.membership_fn*y.membership_fn
+        return self.fuzzy_set, fn
+      except:
+        print('Wrong input!')
+        return None
+
+  def __gt__(self, y):
+    assert len(self.membership_fn) == len(y.membership_fn)
+    if all(self.membership_fn > y.membership_fn):
+      return True
+    else:
+      return False
+
+  def __lt__(self, y):
+    assert len(self.membership_fn) == len(y.membership_fn)
+    if all(self.membership_fn < y.membership_fn):
+      return False
+    else:
+      return True
+
+  def __ge__(self, y):
+    assert len(self.membership_fn) == len(y.membership_fn)
+    if all(self.membership_fn >= y.membership_fn):
+      return True
+    else:
+      return False
+
+  def __eq__(self, y):
+    assert len(self.membership_fn) == len(y.membership_fn)
+    if all(self.membership_fn == y.membership_fn):
+      return True
+    else:
+      return False
+
+  def __ne__(self, y):
+    assert len(self.membership_fn) == len(y.membership_fn)
+    if all(self.membership_fn == y.membership_fn):
+      return False
+    else:
+      return True
+
+  def __le__(self, y):
+    assert len(self.membership_fn) == len(y.membership_fn)
+    if all(self.membership_fn <= y.membership_fn):
+      return False
+    else:
+      return True
 
   def show(self):
     out = []
@@ -44,8 +105,8 @@ class Fuzzy_Set():
     return None
   
   def support(self):
-    fuzzy_set = self.fuzzy_set[self.membership_fn >= 0.0]
-    membership_fn = self.membership_fn[self.membership_fn >= 0.0]
+    fuzzy_set = self.fuzzy_set[self.membership_fn > 0.0]
+    membership_fn = self.membership_fn[self.membership_fn > 0.0]
     return fuzzy_set, membership_fn
 
   def crossover(self):
@@ -84,6 +145,12 @@ class Fuzzy_Set():
     fuzzy_set = self.fuzzy_set[self.membership_fn == 1]
     membership_fn = self.membership_fn[self.membership_fn == 1]
     return fuzzy_set, membership_fn
+
+  def is_normal(self):
+    if np.amax(self.membership_fn) == 1:
+      return True
+    else:
+      return False
 
   def is_convex(self):
     # Incomplete
