@@ -1,4 +1,6 @@
 # package name = fuzzc
+# python setup.py sdist
+# v_01 twine upload dist/*
 import numpy as np
 import matplotlib.pyplot as plt
 
