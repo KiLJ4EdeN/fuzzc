@@ -1,5 +1,6 @@
 # package name = fuzzc
 class Fuzzy_Set():
+  # built ins
   def __init__(self, fuzzy_set, membership_fn):
     # initialize
     self.fuzzy_set = fuzzy_set
@@ -89,7 +90,7 @@ class Fuzzy_Set():
       return False
     else:
       return True
-
+  # class methods.
   def show(self):
     out = []
     assert len(self.fuzzy_set) == len(self.membership_fn)   
@@ -152,5 +153,28 @@ class Fuzzy_Set():
     # Incomplete
     return True
 
-  def complement(self, method=None):
-    return Fuzzy_Set(self.fuzzy_set, 1 - self.membership_fn)
+  def complement(self, method=None, l=0, w=1):
+    # The l parameter is for the sugeno method.
+    # l = 0, equates method=None.
+    # as l goes higher the memberships are shrinked.
+    # The w parameter is for the yager method.
+    # with w = 1, memberships equals methds=None.
+    # as w goes higher the memberships are empowered.
+    if not method:
+      return Fuzzy_Set(self.fuzzy_set, 1 - self.membership_fn)
+    elif method == 'sugeno':
+      assert l > -1, ' l must be greater than -1.'
+      sug_fn = []
+      for a in self.membership_fn:
+        # a fuzzy value of zero is always changed to 1.
+        # which is a condition for creating complement classes.
+        sug_fn.append((1-a)/(1+l*a))
+      return Fuzzy_Set(self.fuzzy_set, np.array(sug_fn))
+    elif method == 'yager':
+      assert w > 0, 'w must be greater than 0'
+      yag_fn = []
+      for a in self.membership_fn:
+        yag_fn.append((1-a**w)**(1/w))
+      return Fuzzy_Set(self.fuzzy_set, np.array(yag_fn))
+    else:
+      return 'Bad Method.'
