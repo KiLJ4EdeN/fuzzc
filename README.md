@@ -96,8 +96,8 @@ alpha_cut.show()
 core = myset.core()
 core.show()
 # Also notice that the set and the membership function can be assesed anytime.
-print(my_set.fuzzy_set)
-print(my_set.membership_fn)
+print(myset.fuzzy_set)
+print(myset.membership_fn)
 ```
 
  
