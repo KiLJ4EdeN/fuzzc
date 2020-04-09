@@ -11,8 +11,8 @@ setup(
   download_url = 'https://github.com/KiLJ4EdeN/fuzzc/releases/tag/v_01',    # I explain this later on
   keywords = ['fuzzy', 'control', 'under-development'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
-          'validators',
-          'beautifulsoup4',
+          'numpy',
+          'matplotlib',
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
