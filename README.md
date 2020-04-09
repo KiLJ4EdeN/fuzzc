@@ -99,6 +99,15 @@ core.show()
 print(myset.fuzzy_set)
 print(myset.membership_fn)
 ```
-
+5 - complement methods.
+```python
+fuzzy_set = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
+# create a custom membership function for average height (avg = 170)
+membership_fn = np.array([0., 0.1, 0.25, 0.5, 1.0, 0.5, 0.25, 0.1, 0])
+fuzzy = Fuzzy_Set(fuzzy_set=fuzzy_set, membership_fn=membership_fn)
+(fuzzy.complement(method=None)).show()
+(fuzzy.complement(method='sugeno', l=3)).show()
+(fuzzy.complement(method='yager', w=3)).show()
+```
  
 
