@@ -1,4 +1,7 @@
 # package name = fuzzc
+import numpy as np
+import matplotlib.pyplot as plt
+
 class Fuzzy_Set():
   # built ins
   def __init__(self, fuzzy_set, membership_fn):
