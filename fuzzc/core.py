@@ -1,19 +1,4 @@
 # package name = fuzzc
-class Crisp_Set():
-  def __init__(self, crisp_set, membership_fn):
-    # initialize
-    self.crisp_set = crisp_set
-    self.membership_fn = membership_fn
-  
-  def show(self):
-    out = []
-    assert len(self.crisp_set) == len(self.membership_fn)
-    
-    if len(self.crisp_set) >= 1:
-      for item, fn in zip(crisp_set, membership_fn):
-        out.append(tuple((item, fn)))
-    print(out)
-
 class Fuzzy_Set():
   def __init__(self, fuzzy_set, membership_fn):
     # initialize
@@ -25,16 +10,20 @@ class Fuzzy_Set():
 
   def __add__(self, y):
     try:
+      assert all(self.fuzzy_set == y.fuzzy_set)
       assert len(self.membership_fn) == len(y.membership_fn)
       fn = self.membership_fn+y.membership_fn
       fn[fn>=1] = 1
       return self.fuzzy_set, fn
+    except AssertionError:
+      print('sets must use the same reference.')
     except:
       print('Wrong input!')
       return None
 
   def __sub__(self, y):
     try:
+      assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
       assert len(self.membership_fn) == len(y.membership_fn)
       fn = self.membership_fn-y.membership_fn
       fn[fn<=0] = 0
@@ -45,6 +34,7 @@ class Fuzzy_Set():
 
   def __mul__(self, y):
       try:
+        assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
         assert len(self.membership_fn) == len(y.membership_fn)
         fn = self.membership_fn*y.membership_fn
         return self.fuzzy_set, fn
@@ -53,6 +43,7 @@ class Fuzzy_Set():
         return None
 
   def __gt__(self, y):
+    assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
     assert len(self.membership_fn) == len(y.membership_fn)
     if all(self.membership_fn > y.membership_fn):
       return True
@@ -60,6 +51,7 @@ class Fuzzy_Set():
       return False
 
   def __lt__(self, y):
+    assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
     assert len(self.membership_fn) == len(y.membership_fn)
     if all(self.membership_fn < y.membership_fn):
       return False
@@ -67,6 +59,7 @@ class Fuzzy_Set():
       return True
 
   def __ge__(self, y):
+    assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
     assert len(self.membership_fn) == len(y.membership_fn)
     if all(self.membership_fn >= y.membership_fn):
       return True
@@ -74,6 +67,7 @@ class Fuzzy_Set():
       return False
 
   def __eq__(self, y):
+    assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
     assert len(self.membership_fn) == len(y.membership_fn)
     if all(self.membership_fn == y.membership_fn):
       return True
@@ -81,6 +75,7 @@ class Fuzzy_Set():
       return False
 
   def __ne__(self, y):
+    assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
     assert len(self.membership_fn) == len(y.membership_fn)
     if all(self.membership_fn == y.membership_fn):
       return False
@@ -88,6 +83,7 @@ class Fuzzy_Set():
       return True
 
   def __le__(self, y):
+    assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
     assert len(self.membership_fn) == len(y.membership_fn)
     if all(self.membership_fn <= y.membership_fn):
       return False
@@ -98,7 +94,7 @@ class Fuzzy_Set():
     out = []
     assert len(self.fuzzy_set) == len(self.membership_fn)   
     if len(self.fuzzy_set) >= 1:
-      for item, fn in zip(fuzzy_set, membership_fn):
+      for item, fn in zip(self.fuzzy_set, self.membership_fn):
         out.append(tuple((item, fn)))
     print(out)
     del out
@@ -107,12 +103,12 @@ class Fuzzy_Set():
   def support(self):
     fuzzy_set = self.fuzzy_set[self.membership_fn > 0.0]
     membership_fn = self.membership_fn[self.membership_fn > 0.0]
-    return fuzzy_set, membership_fn
+    return Fuzzy_Set(fuzzy_set, membership_fn)
 
   def crossover(self):
     fuzzy_set = self.fuzzy_set[self.membership_fn == 0.5]
     membership_fn = self.membership_fn[self.membership_fn == 0.5]
-    return fuzzy_set, membership_fn
+    return Fuzzy_Set(fuzzy_set, membership_fn)
 
   def is_fuzzy_singleton(self):
     if len(self.fuzzy_set[self.membership_fn >= 0.0]) == 1:
@@ -124,7 +120,7 @@ class Fuzzy_Set():
     # rewrite for a bigger center
     fuzzy_set = self.fuzzy_set[self.membership_fn >= np.amax(self.membership_fn)]
     membership_fn = self.membership_fn[self.membership_fn >= np.amax(self.membership_fn)]
-    return fuzzy_set, membership_fn
+    return Fuzzy_Set(fuzzy_set, membership_fn)
 
   def plot_membership(self):
     try:
@@ -139,12 +135,12 @@ class Fuzzy_Set():
   def alpha_cut(self, alpha=0.5):
     fuzzy_set = self.fuzzy_set[self.membership_fn >= alpha]
     membership_fn = np.ones(fuzzy_set.shape)
-    return fuzzy_set, membership_fn
+    return Fuzzy_Set(fuzzy_set, membership_fn)
 
   def core(self):
     fuzzy_set = self.fuzzy_set[self.membership_fn == 1]
     membership_fn = self.membership_fn[self.membership_fn == 1]
-    return fuzzy_set, membership_fn
+    return Fuzzy_Set(fuzzy_set, membership_fn)
 
   def is_normal(self):
     if np.amax(self.membership_fn) == 1:
@@ -155,3 +151,6 @@ class Fuzzy_Set():
   def is_convex(self):
     # Incomplete
     return True
+
+  def complement(self, method=None):
+    return Fuzzy_Set(self.fuzzy_set, 1 - self.membership_fn)
