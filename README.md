@@ -13,7 +13,7 @@ The idea is to provide a utility, with the ability to compete with matlab.
 ## Available Functions Up to now.
 
 add, substract, multiplication, comparative operatiors ( >, <, etc), show, support, crossover, is_fuzzy_singleton,
-center, plot_membership, height, alpha_cut, core, is_normal, is_convex.
+center, plot_membership, height, alpha_cut, core, is_normal, is_convex, yager and sugeno complements.
 ## Prerequisites:
 
 1 - Python
