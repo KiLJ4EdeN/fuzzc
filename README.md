@@ -29,6 +29,7 @@ center, plot_membership, height, alpha_cut, core, is_normal, is_convex, yager an
 ```bash
 pip install fuzzc
 ```
+or
 ```bash
 git clone https://github.com/KiLJ4EdeN/fuzzc/
 cd fuzzc
