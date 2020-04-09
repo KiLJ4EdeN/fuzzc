@@ -7,7 +7,7 @@ The idea is to provide a utility, with the ability to compete with matlab.
 
 
 
-[![License](https://img.shields.io/github/license/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/license/KiLJ4EdeN/fuzzc) [![Version](https://img.shields.io/github/v/tag/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/v/tag/KiLJ4EdeN/fuzzc) [![Code size](https://img.shields.io/github/languages/code-size/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/languages/code-size/KiLJ4EdeN/fuzzc) [![Repo size](https://img.shields.io/github/repo-size/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/repo-size/KiLJ4EdeN/fuzzc) [![Issue open](https://img.shields.io/github/issues/KiLJ4EdeN/fuzzcfuzzc)](https://img.shields.io/github/issues/KiLJ4EdeN/fuzzc)
+[![License](https://img.shields.io/github/license/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/license/KiLJ4EdeN/fuzzc) [![Version](https://img.shields.io/github/v/tag/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/v/tag/KiLJ4EdeN/fuzzc) [![Code size](https://img.shields.io/github/languages/code-size/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/languages/code-size/KiLJ4EdeN/fuzzc) [![Repo size](https://img.shields.io/github/repo-size/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/repo-size/KiLJ4EdeN/fuzzc) [![Issue open](https://img.shields.io/github/issues/KiLJ4EdeN/fuzzc)](https://img.shields.io/github/issues/KiLJ4EdeN/fuzzc)
 ![Issue closed](https://img.shields.io/github/issues-closed/KiLJ4EdeN/fuzzc)
 
 ## Available Functions Up to now.
