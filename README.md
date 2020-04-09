@@ -25,7 +25,7 @@ center, plot_membership, height, alpha_cut, core, is_normal, is_convex.
 
 ### To see an example usage:
 
-1 - Clone the repo and put the module in the cwd.
+1 - Clone the repo.
 ```bash
 git clone https://github.com/KiLJ4EdeN/fuzzc/
 cd fuzzc
@@ -46,7 +46,24 @@ myset.show()
 myset.is_fuzzy_singleton()
 ```
 
-3 - A more generilized example.
+3 - Operators Defined for fuzzy sets.
+```python
+fuzzy_set1 = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
+membership_fn1 = np.array([0., 0.1, 0.25, 0.5, 0.9, 0.5, 0.25, 0.1, 0])
+fuzzy1 = Fuzzy_Set(fuzzy_set=fuzzy_set1, membership_fn=membership_fn1)
+fuzzy_set2 = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
+membership_fn2 = np.array([1., 0.9, 0.3, 0.6, 1.0, 0.6, 0.5, 0.3, 0.4])
+fuzzy2 = Fuzzy_Set(fuzzy_set=fuzzy_set2, membership_fn=membership_fn2)
+print(fuzzy1 + fuzzy2)
+print(fuzzy1 > fuzzy2)
+print(fuzzy1 < fuzzy2)
+print(fuzzy1 - fuzzy2)
+print(fuzzy1 * fuzzy2)
+print(fuzzy1 == fuzzy2)
+print(fuzzy1 != fuzzy2)
+```
+
+4 - A more generilized example.
 ```python
 import fuzzc.core as fuzzc
 # height fuzzy example with plot.
