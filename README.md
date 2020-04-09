@@ -112,7 +112,7 @@ print(myset.membership_fn)
 ```
 5 - complement methods.
 ```python
-import fuzz.core as fuzzc
+import fuzzc.core as fuzzc
 import numpy as np
 
 fuzzy_set = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
