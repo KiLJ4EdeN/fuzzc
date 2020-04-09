@@ -1,5 +1,5 @@
 # fuzzc
-A simple python module to Use fuzzy logic. All the methods return the Fuzzy_Set class. Which is easy to use compared to using traditional numpy arrays.
+A simple python module to Use fuzzy logic. All the methods return the Fuzzy_Set class. Which is easy to use compared to traditional numpy arrays.
 
 Hint that the module is still in proggress.
 Any contribution is welcome.
@@ -95,7 +95,8 @@ myset.center()
 # Alpha cuts are also available.
 alpha_cut = myset.alpha_cut(0.5)
 alpha_cut.show()
-# The core of a fuzzy set is where the memberships are maximized( ==1 ).
+# The core of a fuzzy set 
+is where the memberships are maximized( ==1 ).
 core = myset.core()
 core.show()
 # Also notice that the set and the membership function can be assesed anytime.
