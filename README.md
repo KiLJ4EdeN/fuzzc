@@ -103,7 +103,7 @@ myset.center()
 alpha_cut = myset.alpha_cut(0.5)
 alpha_cut.show()
 # The core of a fuzzy set 
-is where the memberships are maximized( ==1 ).
+# is where the memberships are maximized( ==1 ).
 core = myset.core()
 core.show()
 # Also notice that the set and the membership function can be assesed anytime.
