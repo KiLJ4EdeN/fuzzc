@@ -41,6 +41,8 @@ python3 setup.py build
 2 - Import the module and try some functionalities:
 ```python
 import fuzzc.core as fuzzc
+import numpy as np
+
 # create a set of points in the set.
 fuzzy_set = np.linspace(0, 100, 1, dtype=np.int32)
 print(fuzzy_set)
@@ -55,6 +57,9 @@ myset.is_fuzzy_singleton()
 
 3 - Operators Defined for fuzzy sets.
 ```python
+import fuzzc.core as fuzzc
+import numpy as np
+
 fuzzy_set1 = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
 membership_fn1 = np.array([0., 0.1, 0.25, 0.5, 0.9, 0.5, 0.25, 0.1, 0])
 fuzzy1 = Fuzzy_Set(fuzzy_set=fuzzy_set1, membership_fn=membership_fn1)
@@ -73,6 +78,8 @@ print(fuzzy1 != fuzzy2)
 4 - A more generilized example.
 ```python
 import fuzzc.core as fuzzc
+import numpy as np
+
 # height fuzzy example with plot.
 # define height ranges
 fuzzy_set = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
@@ -105,6 +112,9 @@ print(myset.membership_fn)
 ```
 5 - complement methods.
 ```python
+import fuzz.core as fuzzc
+import numpy as np
+
 fuzzy_set = np.array([130, 140, 150, 160, 170, 180, 190, 200, 210])
 # create a custom membership function for average height (avg = 170)
 membership_fn = np.array([0., 0.1, 0.25, 0.5, 1.0, 0.5, 0.25, 0.1, 0])
