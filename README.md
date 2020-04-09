@@ -62,22 +62,21 @@ myset.plot_membership()
 # find the height.
 myset.height()
 # extract the cross over points and the support.
-supp_set, supp_fn = myset.support()
-print(supp_set)
-print(supp_fn)
-cross_set, cross_fn = myset.crossover()
-print(cross_set)
-print(cross_fn)
+supp_set = myset.support()
+supp_set.show()
+cross_set = myset.crossover()
+cross_set.show()
 # find the center of the set.
 myset.center()
 # Alpha cuts are also available.
-alpha_cut, fn = myset.alpha_cut(0.5)
-print(alpha_cut)
-print(fn)
+alpha_cut = myset.alpha_cut(0.5)
+alpha_cut.show()
 # The core of a fuzzy set is where the memberships are maximized( ==1 ).
-core, core_fn = myset.core()
-print(core)
-print(core_fn)
+core = myset.core()
+core.show()
+# Also notice that the set and the membership function can be assesed anytime.
+print(my_set.fuzzy_set)
+print(my_set.membership_fn)
 ```
 
  
