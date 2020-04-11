@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 class Fuzzy_Set():
   # built ins
   def __init__(self, fuzzy_set, membership_fn):
@@ -101,7 +102,7 @@ class Fuzzy_Set():
     assert len(self.fuzzy_set) == len(self.membership_fn)   
     if len(self.fuzzy_set) >= 1:
       for item, fn in zip(self.fuzzy_set, self.membership_fn):
-        out.append(tuple((item, fn)))
+        out.append(tuple((np.around(item, 2), np.around(fn, 2))))
     print(out)
     del out
     return None
@@ -159,6 +160,7 @@ class Fuzzy_Set():
     return True
 
   def complement(self, method=None, l=0, w=1):
+    methods = ['sugeno', 'yager']
     # The l parameter is for the sugeno method.
     # l = 0, equates method=None.
     # as l goes higher the memberships are shrinked.
@@ -182,4 +184,5 @@ class Fuzzy_Set():
         yag_fn.append((1-a**w)**(1/w))
       return Fuzzy_Set(self.fuzzy_set, np.array(yag_fn))
     else:
-      return 'Bad Method.'
+      print(f'Bad Method. Available Methods are: {methods[0], methods[1]}')
+      return None
