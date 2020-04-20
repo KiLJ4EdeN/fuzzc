@@ -16,8 +16,8 @@ def fuzziness(x):
 
 def inaccuracy(x, y):
   # x with respect to y.
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
   assert len(x.membership_fn) == len(y.membership_fn)
   entropy = 0
