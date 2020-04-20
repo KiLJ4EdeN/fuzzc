@@ -1,6 +1,6 @@
 # fuzzc.entropy
 def fuzziness(x):
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
   entropy = 0
   summation = []
   err = 0
