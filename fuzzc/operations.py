@@ -1,8 +1,8 @@
 # operations module
 # from fuzzc import operations
 def s_norm(x, y, norm_method=None, l=1):
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
   assert len(x.membership_fn) == len(y.membership_fn)
   if not norm_method:
@@ -22,8 +22,8 @@ def s_norm(x, y, norm_method=None, l=1):
     return None
 
 def t_norm(x, y, norm_method=None, l=1):
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
   assert len(x.membership_fn) == len(y.membership_fn)
   if not norm_method:  
@@ -43,8 +43,8 @@ def t_norm(x, y, norm_method=None, l=1):
      return None
 
 def algebraic_sum(x, y):
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
   assert len(x.membership_fn) == len(y.membership_fn)
   a_fn = []
@@ -53,8 +53,8 @@ def algebraic_sum(x, y):
   return Fuzzy_Set(x.fuzzy_set, np.array(a_fn))
 
 def algebraic_diff(x, y):
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
   assert len(x.membership_fn) == len(y.membership_fn)
   a_fn = []
@@ -65,8 +65,8 @@ def algebraic_diff(x, y):
 
 def min_max_avg(x, y, l=0.5):
   # l=1 gives max, and l=0 gives out zero.
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
   assert len(x.membership_fn) == len(y.membership_fn)
   m_fn = []
@@ -75,8 +75,8 @@ def min_max_avg(x, y, l=0.5):
   return Fuzzy_Set(x.fuzzy_set, np.array(m_fn))
 
 def cartesian_prod(x, y):
-  assert str(type(x)) == '''<class '__main__.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
-  assert str(type(y)) == '''<class '__main__.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
+  assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
+  assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   r = len(x.membership_fn)
   c = len(y.membership_fn)
   c_fn = np.zeros((r, c))
