@@ -1,6 +1,14 @@
 # operations module
 # from fuzzc import operations
 def s_norm(x, y, norm_method=None, l=1):
+  """
+  Compute S norm for two fuzzy sets.
+  :param x: a Fuzzy_Set instance.
+  :param y: a Fuzzy_Set instance.
+  :param norm_method: s_norm method.
+  :param l: l parameter for dombi method.
+  :return: S normed Fuzzy_Set instance.
+  """
   assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
   assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
@@ -22,6 +30,14 @@ def s_norm(x, y, norm_method=None, l=1):
     return None
 
 def t_norm(x, y, norm_method=None, l=1):
+  """
+  Compute T norm for two fuzzy sets.
+  :param x: a Fuzzy_Set instance.
+  :param y: a Fuzzy_Set instance.
+  :param norm_method: s_norm method.
+  :param l: l parameter for dombi method.
+  :return: T normed Fuzzy_Set instance.
+  """
   assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
   assert str(type(y)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'y must be a Fuzzy_Set instance.'
   assert all(x.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
