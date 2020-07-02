@@ -1,8 +1,13 @@
-# package name = fuzzc
 class Fuzzy_Set():
   # built ins
   def __init__(self, fuzzy_set, membership_fn):
-    
+    """
+    Create a fuzzy set, using a set and a membership function.
+    :param self: a Fuzzy_Set instance.
+    :param fuzzy_set: A set to create the fuzzy set from.
+    :param membership_fn: A membership_fn associated with the set.
+    :return: a Fuzzy_Set instance.
+    """
     self.fuzzy_set = fuzzy_set
     self.membership_fn = membership_fn
   
@@ -91,7 +96,8 @@ class Fuzzy_Set():
       return False
     else:
       return True
-  # class methods.
+
+  # Class Methods
   def show(self):
     """
     Show a fuzzy set and memberships is tuple pairs.
@@ -118,6 +124,11 @@ class Fuzzy_Set():
     return Fuzzy_Set(fuzzy_set, membership_fn)
 
   def crossover(self):
+    """
+    Find where in fuzzy set the membership is "0.5"
+    :param self: a Fuzzy_Set instance.
+    :return: Points in fuzzy set where membership is "0.5"
+    """
     fuzzy_set = self.fuzzy_set[self.membership_fn == 0.5]
     membership_fn = self.membership_fn[self.membership_fn == 0.5]
     return Fuzzy_Set(fuzzy_set, membership_fn)
@@ -207,18 +218,34 @@ class Fuzzy_Set():
     else:
       return True
 
+  def is_complete(self):
+    """
+    Find if a fuzzy set is complete.
+    :param self: a Fuzzy_Set instance.
+    :return: True if the set is complete ow False.
+    """
+    return True if sum[self.membership_fn == 0.5] == len(self.membership_fn) else False
+
   def is_convex(self):
     # Incomplete
     return True
 
   def complement(self, method=None, l=0, w=1):
+    """
+    Create a complement for a fuzzy set.
+    :param self: a Fuzzy_Set instance.
+    :param method: Complement method.
+    :param l: The l parameter is for the sugeno method.
+    :param w: The w parameter is for the yager method.
+    :return: A complemented Fuzzy_Set instance.
+    """
     methods = ['sugeno', 'yager']
     # The l parameter is for the sugeno method.
     # l = 0, equates method=None.
     # as l goes higher the memberships are shrinked.
     # The w parameter is for the yager method.
-    # with w = 1, memberships equals methds=None.
-    # as w goes higher the memberships are empowered.
+    # with w = e1, memberships equals methds=None.
+    # as w goes higher th memberships are empowered.
     if not method:
       return Fuzzy_Set(self.fuzzy_set, 1 - self.membership_fn)
     elif method == 'sugeno':
