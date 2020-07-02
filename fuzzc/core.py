@@ -1,3 +1,11 @@
+# package name = fuzzc
+# python setup.py sdist
+# v_01 twine upload dist/*
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
 class Fuzzy_Set():
   # built ins
   def __init__(self, fuzzy_set, membership_fn):
@@ -244,8 +252,8 @@ class Fuzzy_Set():
     # l = 0, equates method=None.
     # as l goes higher the memberships are shrinked.
     # The w parameter is for the yager method.
-    # with w = e1, memberships equals methds=None.
-    # as w goes higher th memberships are empowered.
+    # with w = 1, memberships equals methds=None.
+    # as w goes higher the memberships are empowered.
     if not method:
       return Fuzzy_Set(self.fuzzy_set, 1 - self.membership_fn)
     elif method == 'sugeno':
