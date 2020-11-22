@@ -1,3 +1,6 @@
+from .core import FuzzySet
+
+
 # fuzzc.memberships
 def triangular(a, b, c, x, plot=False):
   # Creates membership fn for a set.
@@ -9,7 +12,8 @@ def triangular(a, b, c, x, plot=False):
   if plot:
     import matplotlib.pyplot as plt
     plt.plot(x)
-  return Fuzzy_Set(fuzzy_set, x)
+  return FuzzySet(fuzzy_set, x)
+
 
 def bell_shaped(a, b, c, x, plot=False):
   # Creates membership fn for a set.
@@ -19,4 +23,4 @@ def bell_shaped(a, b, c, x, plot=False):
   if plot:
     import matplotlib.pyplot as plt
     plt.plot(x, 'r')
-  return Fuzzy_Set(fuzzy_set, x) 
+  return FuzzySet(fuzzy_set, x)

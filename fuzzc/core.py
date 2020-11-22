@@ -5,8 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
-class Fuzzy_Set():
+class FuzzySet:
   # built ins
   def __init__(self, fuzzy_set, membership_fn):
     """
@@ -28,7 +27,7 @@ class Fuzzy_Set():
       assert all(self.fuzzy_set == y.fuzzy_set)
       assert len(self.membership_fn) == len(y.membership_fn)
       fn = self.membership_fn+y.membership_fn
-      fn[fn>=1] = 1
+      fn[fn >= 1] = 1
       return self.fuzzy_set, fn
     except AssertionError:
       print('sets must use the same reference.')
@@ -41,7 +40,7 @@ class Fuzzy_Set():
       assert all(self.fuzzy_set == y.fuzzy_set), ' sets must use the same reference.'
       assert len(self.membership_fn) == len(y.membership_fn)
       fn = self.membership_fn-y.membership_fn
-      fn[fn<=0] = 0
+      fn[fn <= 0] = 0
       return self.fuzzy_set, fn
     except:
       print('Wrong input!')
@@ -129,7 +128,7 @@ class Fuzzy_Set():
     """
     fuzzy_set = self.fuzzy_set[self.membership_fn > 0.0]
     membership_fn = self.membership_fn[self.membership_fn > 0.0]
-    return Fuzzy_Set(fuzzy_set, membership_fn)
+    return FuzzySet(fuzzy_set, membership_fn)
 
   def crossover(self):
     """
@@ -139,7 +138,7 @@ class Fuzzy_Set():
     """
     fuzzy_set = self.fuzzy_set[self.membership_fn == 0.5]
     membership_fn = self.membership_fn[self.membership_fn == 0.5]
-    return Fuzzy_Set(fuzzy_set, membership_fn)
+    return FuzzySet(fuzzy_set, membership_fn)
 
   def is_fuzzy_singleton(self):
     """
@@ -161,7 +160,7 @@ class Fuzzy_Set():
     """
     fuzzy_set = self.fuzzy_set[self.membership_fn >= np.amax(self.membership_fn)]
     membership_fn = self.membership_fn[self.membership_fn >= np.amax(self.membership_fn)]
-    return Fuzzy_Set(fuzzy_set, membership_fn)
+    return FuzzySet(fuzzy_set, membership_fn)
 
   def plot_membership(self):
     """
@@ -192,7 +191,7 @@ class Fuzzy_Set():
     """
     fuzzy_set = self.fuzzy_set[self.membership_fn >= alpha]
     membership_fn = np.ones(fuzzy_set.shape)
-    return Fuzzy_Set(fuzzy_set, membership_fn)
+    return FuzzySet(fuzzy_set, membership_fn)
 
   def core(self):
     """
@@ -202,7 +201,7 @@ class Fuzzy_Set():
     """
     fuzzy_set = self.fuzzy_set[self.membership_fn == 1]
     membership_fn = self.membership_fn[self.membership_fn == 1]
-    return Fuzzy_Set(fuzzy_set, membership_fn)
+    return FuzzySet(fuzzy_set, membership_fn)
 
   def is_normal(self):
     """
@@ -255,7 +254,7 @@ class Fuzzy_Set():
     # with w = 1, memberships equals methds=None.
     # as w goes higher the memberships are empowered.
     if not method:
-      return Fuzzy_Set(self.fuzzy_set, 1 - self.membership_fn)
+      return FuzzySet(self.fuzzy_set, 1 - self.membership_fn)
     elif method == 'sugeno':
       assert l > -1, ' l must be greater than -1.'
       sug_fn = []
@@ -263,13 +262,13 @@ class Fuzzy_Set():
         # a fuzzy value of zero is always changed to 1.
         # which is a condition for creating complement classes.
         sug_fn.append((1-a)/(1+l*a))
-      return Fuzzy_Set(self.fuzzy_set, np.array(sug_fn))
+      return FuzzySet(self.fuzzy_set, np.array(sug_fn))
     elif method == 'yager':
       assert w > 0, 'w must be greater than 0'
       yag_fn = []
       for a in self.membership_fn:
         yag_fn.append((1-a**w)**(1/w))
-      return Fuzzy_Set(self.fuzzy_set, np.array(yag_fn))
+      return FuzzySet(self.fuzzy_set, np.array(yag_fn))
     else:
       print(f'Bad Method. Available Methods are: {methods[0], methods[1]}')
       return None

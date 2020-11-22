@@ -1,3 +1,5 @@
+import numpy as np
+
 # fuzzc.entropy
 def fuzziness(x):
   assert str(type(x)) == '''<class 'fuzzc.core.Fuzzy_Set'>''', 'x must be a Fuzzy_Set instance.'
@@ -13,6 +15,7 @@ def fuzziness(x):
       summation.append(member*np.log(member) + (1-member)*np.log(1-member))
   entropy = (-1/(len(x.membership_fn)-err)) * (sum(summation))
   return entropy
+
 
 def inaccuracy(x, y):
   # x with respect to y.
